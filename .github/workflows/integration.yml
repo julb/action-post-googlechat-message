@@ -1,0 +1,20 @@
+name: Integration Test
+
+on: 
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "The message."
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test repository
+        id: post_gchat_message
+        uses: ./
+        with:
+          message:  ${{ github.event.inputs.message }}
+          gchat_webhook_url: ${{ secrets.GCHAT_WEBHOOK_URL }}

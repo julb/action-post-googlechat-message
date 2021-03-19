@@ -1,0 +1,16 @@
+name: Post Google Chat message
+description: "This action posts a message in a Google Chat channel."
+author: "julb"
+branding:
+  icon: send
+  color: green
+inputs:
+  message:
+    description: "The message to post."
+    required: true
+  gchat_webhook_url:
+    description: "The Google Chat Webhook URL."
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
